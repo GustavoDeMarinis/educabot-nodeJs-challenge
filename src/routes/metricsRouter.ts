@@ -6,6 +6,7 @@ const router = Router()
 
 const booksProvider = ExternalBooksProvider()
 
+//Implement Swagger or similar tool for API documentation
 router.get('/', handleGetMetrics(booksProvider))
 
 export default router
