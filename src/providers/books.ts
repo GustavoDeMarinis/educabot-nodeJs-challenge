@@ -1,5 +1,5 @@
-import { Book } from '../models/book.ts'
+import { Book } from '../models/book'
 
-export type BooksProvider = {
-  getBooks: () => Book[]
+export interface BooksProvider {
+  getBooks: () => Promise<Book[]>
 }

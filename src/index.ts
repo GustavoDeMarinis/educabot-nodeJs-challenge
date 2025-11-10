@@ -1,17 +1,14 @@
 import express from 'express'
 import cors from 'cors'
-import BooksProvider from './repositories/mocks/booksProvider.ts'
-import MetricsHandler from './handlers/metrics.ts'
+import metricsRouter from './routes/metricsRouter'
 
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
 
-const booksProvider = BooksProvider()
-const metricsHandler = MetricsHandler(booksProvider)
-app.get('/', metricsHandler.get)
+app.use('/metrics', metricsRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
