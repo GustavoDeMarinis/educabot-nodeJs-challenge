@@ -4,9 +4,13 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    include: ['src/**/*.test.ts'],
     coverage: {
-      reporter: ['text', 'json', 'html']
-    }
-  }
+      reporter: ['text', 'json', 'html'],
+    },
+  },
+  esbuild: {
+    target: 'esnext',
+    loader: 'ts',
+  },
 })
